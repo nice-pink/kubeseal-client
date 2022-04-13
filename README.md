@@ -1,4 +1,4 @@
-# What is that
+# What is that?
 
 This is a python wrapper for `kubeseal` (__version >= v0.16.0__).
 
@@ -19,6 +19,12 @@ and/or
 * **Sealed Secrets Controller** running in your kubernetes cluster (https://github.com/bitnami-labs/sealed-secrets).
 # Usage
 
-Check `examples` folder.
+Check **examples** folder.
 
 >> Info: Install dependencies for examples (pip3 install -r examples/requirements.txt)!
+
+## Run in Docker
+
+There is a `Dockerfile` contained in the **examples** folder. Needed to get the example running:
+
+* Copy your `~/.kube/config` file to `REPO_PATH/examples/kube/config`.

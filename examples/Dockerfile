@@ -27,9 +27,6 @@ RUN install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 # # Kubeseal
 RUN (cd /; GO111MODULE=on go install github.com/bitnami-labs/sealed-secrets/cmd/kubeseal@main)
 
-# # Kubeseal Client
-RUN pip install git+https://github.com/nice-pink/kubeseal-client.git
-
 # Workdir
 WORKDIR /src
 

@@ -1,1 +1,2 @@
+git+https://github.com/nice-pink/kubeseal-client.git
 kubernetes

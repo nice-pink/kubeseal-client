@@ -3,16 +3,16 @@ from enum import Enum
 import json
 import subprocess
 
-class Scope(Enum):
+class SealedSecretsScope(Enum):
     Strict = 0
     Namespace = 1
     Cluster = 2
 
     @staticmethod
     def get_name(value: int):
-        if value == Scope.Namespace:
+        if value == SealedSecretsScope.Namespace:
             return "namespace-wide"
-        elif value == Scope.Cluster:
+        elif value == SealedSecretsScope.Cluster:
             return "cluster-wide"
         else:
             return "strict"
@@ -24,7 +24,7 @@ class KubesealClient:
              output_file: Optional[str] = None,
              output_format: str = 'yaml',
              pem_cert_file: Optional[str] = None,
-             scope: Scope = Scope.Strict,
+             scope: SealedSecretsScope = SealedSecretsScope.Strict,
              controller_name: Optional[str] = None) -> bytes:
         json_string: str = json.dumps(secret)
         echo = subprocess.Popen(('echo', json_string), stdout=subprocess.PIPE)
@@ -56,7 +56,7 @@ class KubesealClient:
                  output_file: Optional[str] = None,
                  output_format: str = 'yaml',
                  pem_cert_file: Optional[str] = None,
-                 scope: Scope = Scope.Strict,
+                 scope: SealedSecretsScope = SealedSecretsScope.Strict,
                  controller_name: Optional[str] = None) -> bytes:
         command: List[str] = KubesealClient.get_seal_command(raw_from_file=raw_from_file,
                                                                   output_format=output_format,
@@ -83,14 +83,14 @@ class KubesealClient:
     @staticmethod
     def get_seal_command(output_format: str = 'yaml',
                          pem_cert_file: Optional[str] = None,
-                         scope: Scope = Scope.Strict,
+                         scope: SealedSecretsScope = SealedSecretsScope.Strict,
                          controller_name: Optional[str] = None,
                          raw_from_file: Optional[str] = None) -> str:
         command: List[str] = ['kubeseal', '--format', output_format]
         if pem_cert_file:
             command.extend(['--cert', pem_cert_file])
-        if scope != Scope.Strict:
-            command.extend(['--scope', Scope.get_name(scope)])
+        if scope != SealedSecretsScope.Strict:
+            command.extend(['--scope', SealedSecretsScope.get_name(scope)])
         if controller_name:
             command.extend(['--controller-name', controller_name])
         if raw_from_file:

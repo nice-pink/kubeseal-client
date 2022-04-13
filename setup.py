@@ -1,5 +1,3 @@
-import kubeseal_client
-
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
@@ -16,6 +14,6 @@ setuptools.setup(
         "Bug Tracker": "https://github.com/nice-pink/kubeseal-client/issues"
     },
     license='MIT',
-    packages=['kubeseal-client'],
+    packages=['kubeseal_client'],
     install_requires=[],
 )

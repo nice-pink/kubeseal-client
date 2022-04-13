@@ -12,7 +12,7 @@ and/or
 
 `pip3 install git+https://github.com/nice-pink/kubeseal-client.git`
 
-# Prequesite
+# Prerequisites
 
 * Kubernetes cluster setup and ready to use. There are planty of ways to get there without huge hassle or paid cloud solutions (e.g. **Minikube**).
 * Install **kubeseal** cli tool https://github.com/bitnami-labs/sealed-secrets.

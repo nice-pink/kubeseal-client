@@ -3,7 +3,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='kubeseal_client',
-    version='0.0.1',
+    version='0.0.2',
     author='Raffael @ Nice Pink',
     author_email='r@nice.pink',
     description='Python kubeseal wrapper',

@@ -21,7 +21,7 @@ and/or
 
 Check **examples** folder.
 
->> Info: Install dependencies for examples (pip3 install -r examples/requirements.txt)!
+> Info: Install dependencies for examples (pip3 install -r examples/requirements.txt)!
 
 ## Run in Docker
 

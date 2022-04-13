@@ -1,7 +1,13 @@
-.DS_Store
-*/.DS_Store
-
+# Python
 __pycache__
 */__pycache__
 
 venv/
+
+# Mac
+.DS_Store
+*/.DS_Store
+
+# Kubernetes
+kube/
+*/kube/

@@ -68,7 +68,8 @@ if __name__=="__main__":
     clean_secret: dict = get_clean_secret(secret)
     
     # seal the sealed secrets key
-    cert: str = 'cert.pem'
     scope: SealedSecretsScope = SealedSecretsScope.Cluster
-    sealed_secret: bytes = KubesealClient.seal(clean_secret, pem_cert_file=cert, scope=scope, output_format='json')
+    sealed_secret: bytes = KubesealClient.seal(clean_secret, scope=scope, output_format='json')
+    # cert: str = 'cert.pem'
+    # sealed_secret: bytes = KubesealClient.seal(clean_secret, pem_cert_file=cert, scope=scope, output_format='json')
     print(sealed_secret)

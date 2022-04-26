@@ -58,11 +58,11 @@ class KubesealClient:
                  pem_cert_file: Optional[str] = None,
                  scope: SealedSecretsScope = SealedSecretsScope.Strict,
                  controller_name: Optional[str] = None) -> bytes:
-        command: List[str] = KubesealClient.get_seal_command(raw_from_file=raw_from_file,
-                                                                  output_format=output_format,
-                                                                  pem_cert_file=pem_cert_file,
-                                                                  scope=scope,
-                                                                  controller_name=controller_name)
+        command: List[str] = KubesealClient.get_seal_command(output_format=output_format,
+                                                             pem_cert_file=pem_cert_file,
+                                                             scope=scope,
+                                                             controller_name=controller_name,
+                                                             raw_from_file=raw_from_file)
 
         # kubeseal
         kubeseal = subprocess.Popen(command, stdout=subprocess.PIPE)
